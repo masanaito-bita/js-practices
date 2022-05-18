@@ -4,10 +4,10 @@ const year = typeof argv.y !== "undefined" ? argv.y : date.getFullYear();
 const month = typeof argv.m !== "undefined" ? argv.m : date.getMonth() + 1;
 
 function cal(year, month) {
-  const first_date = new Date(year, month - 1, 1);
-  const last_date = new Date(year, month, 0);
-  const end_day_count = last_date.getDate();
-  let week = first_date.getDay();
+  const firstDate = new Date(year, month - 1, 1);
+  const lastDate = new Date(year, month, 0);
+  const endDayCount = lastDate.getDate();
+  let week = firstDate.getDay();
 
   console.log(`      ${month}月 ${year}`);
   console.log("日 月 火 水 木 金 土");
@@ -17,7 +17,7 @@ function cal(year, month) {
     process.stdout.write(String(" ").repeat(week * 3));
   }
 
-  for (let i = 1; i <= end_day_count; i++) {
+  for (let i = 1; i <= endDayCount; i++) {
     if (i < 10) {
       output += ` ${i} `;
     } else {
