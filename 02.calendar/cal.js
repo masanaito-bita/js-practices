@@ -1,22 +1,21 @@
 const argv = require("minimist")(process.argv.slice(2));
 const date = new Date();
-const year = typeof argv.y !== "undefined" ? argv.y : date.getFullYear();
-const month = typeof argv.m !== "undefined" ? argv.m : date.getMonth() + 1;
+const year = argv.y !== undefined ? argv.y : date.getFullYear();
+const month = argv.m !== undefined ? argv.m : date.getMonth() + 1;
 
 function cal(year, month) {
   const firstDate = new Date(year, month - 1, 1);
   const lastDate = new Date(year, month, 0);
-  const endDayCount = lastDate.getDate();
   let week = firstDate.getDay();
+  console.log(lastDate);
 
   console.log(`      ${month}月 ${year}`);
   console.log("日 月 火 水 木 金 土");
 
   let output = "";
-  if (week != 0) {
-    process.stdout.write(String(" ").repeat(week * 3));
-  }
+  output += String(" ").repeat(week * 3);
 
+  const endDayCount = lastDate.getDate();
   for (let i = 1; i <= endDayCount; i++) {
     if (i < 10) {
       output += ` ${i} `;
