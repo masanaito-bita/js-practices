@@ -17,12 +17,7 @@ function cal(year, month) {
 
   const endDayCount = lastDate.getDate();
   for (let i = 1; i <= endDayCount; i++) {
-    if (i < 10) {
-      output += ` ${i} `;
-    } else {
-      output += `${i} `;
-    }
-
+    output += i < 10 ? ` ${i} ` : `${i} `;
     week += 1;
     if (week % 7 == 0) {
       output += "\n";
