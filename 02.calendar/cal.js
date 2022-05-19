@@ -7,7 +7,6 @@ function cal(year, month) {
   const firstDate = new Date(year, month - 1, 1);
   const lastDate = new Date(year, month, 0);
   let week = firstDate.getDay();
-  console.log(lastDate);
 
   console.log(`      ${month}月 ${year}`);
   console.log("日 月 火 水 木 金 土");
@@ -24,7 +23,7 @@ function cal(year, month) {
     }
   }
 
-  console.log(output);
+  console.log(output + "\n");
 }
 
 cal(year, month);
